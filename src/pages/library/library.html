@@ -7,12 +7,22 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>library</ion-title>
+    <ion-title>Quotes Library</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
 
+<ion-content padding>
+  <h3 text-center> Select your Favorite Quote</h3>
+  <ion-list>
+    <button ion-item *ngFor="let quoteGroup of quoteCollection"
+    [navPush]="quotesPage" [navParams]="quoteGroup">
+       <ion-icon item-left name="{{ quoteGroup.icon }}"></ion-icon> 
+       <h3> {{ quoteGroup.category | uppercase }}</h3> 
+       <p> {{quoteGroup.quotes.length }} quotes </p>
+    </button>
+  </ion-list>
+<!-- I would need an NG For to iterate through the elements! -->
 </ion-content>
